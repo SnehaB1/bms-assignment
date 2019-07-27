@@ -31,9 +31,7 @@ class Assignment2 extends React.Component {
   onChangeWidth() {
     const { windowWidth } = this.state;
     // this.setState
-    console.log("size change outer");
     if (windowWidth !== window.innerWidth) {
-      console.log("size change inner")
       this.findMinRow();
     }
     this.setState({ windowWidth: window.innerWidth })
@@ -52,10 +50,10 @@ class Assignment2 extends React.Component {
 
   countOccurence() {
     const { offsetTopArray } = this.state;
-    // console.log("va2", offsetTopArray, minOffsetTop)
+
     let i = 0;
     let minOffsetTop = offsetTopArray[0];
-    console.log(offsetTopArray)
+
     offsetTopArray.map((element) => {
       if (element === minOffsetTop)
         i++;
@@ -84,7 +82,7 @@ class Assignment2 extends React.Component {
     let activeIndex = TrailerURL.indexOf("v=");
     const trailerData = {
       activeEventTitle: EventTitle,
-      activeTrailerURL: `https://www.youtube.com/embed/${TrailerURL.substring(activeIndex + 2, activeIndex + 13)}?autoplay=1`,
+      activeTrailerURL: `https://www.youtube.com/embed/${TrailerURL.substring(activeIndex + 2, activeIndex + 13)}?autoplay=1&mute=1&enablejsapi=1`,
       activeEventLanguage: EventLanguage,
       activeEventGenre: EventGenre,
       activeShowDate: ShowDate,
@@ -99,7 +97,7 @@ class Assignment2 extends React.Component {
   render() {
     const { apiData } = this.props;
     const { itemsPerRow, rowAbove } = this.state;
-    // console.log(itemsPerRow)
+    console.log(itemsPerRow)
     return (
       <div>
         <Row className="heading-row">
