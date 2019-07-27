@@ -1,6 +1,4 @@
-
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
 @font-face {
     font-family: 'Jenna Sue';
     src: url(../fonts/JennaSue.ttf) format('truetype');
@@ -326,6 +324,22 @@ body {
 .stats {
     align-items: flex-end;
     margin-top: 24px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    margin-top: -30px;
+    cursor: pointer;
+}
+
+.icon-close {
+    color: #fff !important;
+    font-size: 20px;
+}
+
+.selectedItem {
+    border: 2px solid #41A458;
 }
 
 @media only screen and (max-width: 768px) {
