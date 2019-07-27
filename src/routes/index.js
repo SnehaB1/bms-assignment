@@ -15,7 +15,6 @@ class BasicRoutes extends React.PureComponent {
                 <Route exact path={rootPath} component={App} />
                 <Route path={assignment1} component={Assignment1} />
                 <Route path={assignment2} component={Assignment2} />
-                <Route component={() => (<div>404 Not found </div>)} />
             </BrowserRouter>
         )
     }
