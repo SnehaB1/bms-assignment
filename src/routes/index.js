@@ -10,10 +10,11 @@ import App from "../App";
 class BasicRoutes extends React.PureComponent {
     render() {
         return (
-            <BrowserRouter>
-                <Route exact path={process.env.PUBLIC_URL + '/'} component={App} />
+            <BrowserRouter basename={process.env.PUBLIC_URL}>
+                <Route exact path={rootPath} component={App} />
                 <Route path={assignment1} component={Assignment1} />
                 <Route path={assignment2} component={Assignment2} />
+                <Route component={() => (<div>404 Not found </div>)} />
             </BrowserRouter>
         )
     }
