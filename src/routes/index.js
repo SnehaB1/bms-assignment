@@ -11,7 +11,7 @@ class BasicRoutes extends React.PureComponent {
     render() {
         return (
             <BrowserRouter>
-                <Route exact path={rootPath} component={App} />
+                <Route exact path={process.env.PUBLIC_URL + '/'} component={App} />
                 <Route path={assignment1} component={Assignment1} />
                 <Route path={assignment2} component={Assignment2} />
             </BrowserRouter>
