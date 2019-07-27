@@ -22,6 +22,7 @@ class Assignment2 extends React.Component {
   componentDidMount() {
     this.onChangeWidth();
     window.addEventListener("resize", this.initialiseArray.bind(this));
+    updateActiveTrailerData({});
   }
 
   initialiseArray() {
@@ -64,7 +65,7 @@ class Assignment2 extends React.Component {
 
   findMinRow() {
     let val = this.countOccurence();
-    console.log("findminrow", val)
+    // console.log("findminrow", val)
     this.setState({ itemsPerRow: val })
   }
 
@@ -89,7 +90,8 @@ class Assignment2 extends React.Component {
       activeWtsPerc: wtsPerc,
       activeWtsCount: wtsCount,
       activeDwtsCount: dwtsCount,
-      activeMaybeCount: maybeCount
+      activeMaybeCount: maybeCount,
+      activeIndex: index
     }
     updateActiveTrailerData(trailerData);
   }
@@ -97,7 +99,8 @@ class Assignment2 extends React.Component {
   render() {
     const { apiData } = this.props;
     const { itemsPerRow, rowAbove } = this.state;
-    console.log(itemsPerRow)
+    // console.log(itemsPerRow)
+
     return (
       <div>
         <Row className="heading-row">
