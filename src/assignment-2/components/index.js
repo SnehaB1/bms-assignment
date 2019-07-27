@@ -40,6 +40,8 @@ class TrailerColumn extends React.Component {
     this.state = {
       trailerCode: "",
       trailerVisible: false,
+      hideTrailer: false,
+      addStyle: this.props.index === this.props.activeTrailer.activeIndex ? true : false,
       activeElement: {}
     }
     this.myInput = React.createRef()
@@ -62,31 +64,32 @@ class TrailerColumn extends React.Component {
   }
 
   handleClick() {
-    this.setState({ visible: true });
     this.setState({ trailerVisible: true });
     const result = this.props.onClickTrailer(this.props.index, this.props.item);
     this.setState({ activeElement: result });
-    console.log("result", result)
   }
 
   render() {
-    const { apiData, item, PandaSvg, showTrailer, activeTrailer } = this.props;
-    const { trailerCode, activeElement } = this.state;
+    const { apiData, item, showTrailer, activeTrailer } = this.props;
+    const { hideTrailer, addStyle } = this.state;
     const { DispReleaseDate, wtsCount, wtsPerc, EventTitle } = apiData[item];
     // const { activeEventTitle } = activeElement;
     const {
       activeEventTitle, activeTrailerURL,
       activeEventLanguage, activeEventGenre, activeShowDate,
       activeWtsPerc, activeWtsCount, activeDwtsCount,
-      activeMaybeCount
+      activeMaybeCount, activeIndex
     } = activeTrailer;
-    console.log(activeTrailer)
+
     return (
       <React.Fragment>
         {
-          showTrailer
+          showTrailer && !hideTrailer
             ?
             <div className="trailer-row">
+              <div className="close" onClick={() => this.setState({ hideTrailer: true })}>
+                <Icon type="close" className="icon-close" />
+              </div>
               <div
                 className="iframe-col"
               >
@@ -103,8 +106,8 @@ class TrailerColumn extends React.Component {
                 </div>
                 <div className={"genre-wrapper"}>
                   {
-                    activeEventGenre.split("|").map((item) =>
-                      <div className={"genre-item"}>
+                    activeEventGenre.split("|").map((item, i) =>
+                      <div className={"genre-item"} key={i}>
                         {item}
                       </div>
                     )
@@ -138,7 +141,7 @@ class TrailerColumn extends React.Component {
                 <Row className="stats">
                   <Col span={8} className="info-will-watch">
                     <Row>
-                    <Icon component={LikeSVG} className="stats-like" />
+                      <Icon component={LikeSVG} className="stats-like" />
                     </Row>
                     <Row className="will-watch-text">
                       Will Watch
@@ -149,7 +152,7 @@ class TrailerColumn extends React.Component {
                   </Col>
                   <Col span={8} className="info-maybe-watch">
                     <Row>
-                    <Icon component={MaybeSVG} className="stats-maybe" />
+                      <Icon component={MaybeSVG} className="stats-maybe" />
                     </Row>
                     <Row className="maybe-watch-text">
                       Maybe
@@ -160,7 +163,7 @@ class TrailerColumn extends React.Component {
                   </Col>
                   <Col span={8} className="info-not-watch">
                     <Row>
-                    <Icon component={DislikeSVG} className="stats-dislike" />
+                      <Icon component={DislikeSVG} className="stats-dislike" />
                     </Row>
                     <Row className="not-watch-text">
                       Won't Watch
@@ -175,7 +178,10 @@ class TrailerColumn extends React.Component {
             :
             null
         }
-        <div className="trailer-thumbmail" ref={this.myInput} onClick={() => this.handleClick()}>
+        <div className={`trailer-thumbmail ${(this.props.index === activeIndex && !hideTrailer) ? "selectedItem" : null}`}
+          ref={this.myInput}
+          onClick={() => this.handleClick()}
+        >
           <div className={"trailers-container"}>
             <div className="image-wrapper">
               <img
