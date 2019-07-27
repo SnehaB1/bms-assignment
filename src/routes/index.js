@@ -9,6 +9,7 @@ import App from "../App";
 
 class BasicRoutes extends React.PureComponent {
     render() {
+        console.log(process.env.PUBLIC_URL, "public url")
         return (
             <BrowserRouter basename={process.env.PUBLIC_URL}>
                 <Route exact path={rootPath} component={App} />
