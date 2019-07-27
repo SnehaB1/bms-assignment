@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/bms-assignment/static/css/main.b4939767.chunk.css",
+    "main.css": "/bms-assignment/static/css/main.081fab4e.chunk.css",
     "main.js": "/bms-assignment/static/js/main.4d6a92ba.chunk.js",
     "main.js.map": "/bms-assignment/static/js/main.4d6a92ba.chunk.js.map",
     "runtime~main.js": "/bms-assignment/static/js/runtime~main.a3bdedca.js",
@@ -9,10 +9,10 @@
     "static/js/2.8680bae2.chunk.js": "/bms-assignment/static/js/2.8680bae2.chunk.js",
     "static/js/2.8680bae2.chunk.js.map": "/bms-assignment/static/js/2.8680bae2.chunk.js.map",
     "index.html": "/bms-assignment/index.html",
-    "precache-manifest.9c66d113d07d50e17d088b8eeeefc6b8.js": "/bms-assignment/precache-manifest.9c66d113d07d50e17d088b8eeeefc6b8.js",
+    "precache-manifest.2d359ab9d238fb458b67cd07c358be9b.js": "/bms-assignment/precache-manifest.2d359ab9d238fb458b67cd07c358be9b.js",
     "service-worker.js": "/bms-assignment/service-worker.js",
     "static/css/2.676dc204.chunk.css.map": "/bms-assignment/static/css/2.676dc204.chunk.css.map",
-    "static/css/main.b4939767.chunk.css.map": "/bms-assignment/static/css/main.b4939767.chunk.css.map",
+    "static/css/main.081fab4e.chunk.css.map": "/bms-assignment/static/css/main.081fab4e.chunk.css.map",
     "static/media/style.css": "/bms-assignment/static/media/JennaSue.d3e5b970.ttf",
     "static/media/bookmyshow.webp": "/bms-assignment/static/media/bookmyshow.44a177ec.webp"
   }
