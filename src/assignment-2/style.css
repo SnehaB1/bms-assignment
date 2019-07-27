@@ -1,5 +1,13 @@
-@import url(http://allfont.net/allfont.css?fonts=jenna-sue);
+
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+@font-face {
+    font-family: 'PTC55F';
+    src: url(../fonts/JennaSue.ttf) format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -242,7 +250,7 @@ body {
     padding: 12px;
 }
 
-.info-will-watch{
+.info-will-watch {
     color: #41A458;
     justify-content: center;
     text-align: center;
@@ -270,7 +278,7 @@ body {
     padding: 12px;
 }
 
-.info-maybe-watch{
+.info-maybe-watch {
     color: #FFA500;
     justify-content: center;
     text-align: center;
@@ -298,7 +306,7 @@ body {
     padding: 12px;
 }
 
-.info-not-watch{
+.info-not-watch {
     color: #B24242;
     justify-content: center;
     text-align: center;
@@ -341,4 +349,4 @@ body {
         margin: 20px !important;
         justify-content: space-between;
     }
-  }
+}
