@@ -149,7 +149,7 @@ class Assignment2 extends React.Component {
 
 const mapStateToProps = (state) => {
   const { assignment2 } = state;
-  console.log(state);
+  // console.log(state);
   return {
     apiData: assignment2
   }
