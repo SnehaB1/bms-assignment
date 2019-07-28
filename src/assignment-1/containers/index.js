@@ -39,11 +39,11 @@ class Assignment1 extends React.Component {
     const { arrayList, duplicateValues, uniqueValues } = this.state;
 
     duplicateValues.map((item) => {
-      this.deleteValueFromArray(arrayList, item)
+      return this.deleteValueFromArray(arrayList, item)
     })
 
     uniqueValues.map((item) => {
-      this.addValueToArray(arrayList, item)
+      return this.addValueToArray(arrayList, item)
     })
 
   }
@@ -95,12 +95,17 @@ class Assignment1 extends React.Component {
           if (item.includes("-")) {
             this.appendValuesBetweenRange(splittedValues, item);
             this.deleteValueFromArray(splittedValues, item);
+            // return true
           }
+          return true
         });
 
         let j = 0;
         for(j=0; j<splittedValues.length; j++) { splittedValues[j] = +splittedValues[j]; } 
-
+        splittedValues.filter(function(item, pos){
+          return splittedValues.indexOf(item)== pos; 
+        });
+        console.log(splittedValues)
         // console.log(splittedValues, arrayList)
         let duplicateValues = arrayList.filter((item) => { return splittedValues.indexOf(item) !== -1; })
         let uniqueValues = splittedValues.diff(duplicateValues)
@@ -110,12 +115,8 @@ class Assignment1 extends React.Component {
           uniqueValues
         });
 
-        duplicateValues.map((item) => {
-          this.deleteValueFromArray(arrayList, item)
-        })
-
         uniqueValues.map((item) => {
-          this.addValueToArray(arrayList, item)
+          return this.addValueToArray(arrayList, item)
         })
 
         updateList(arrayList);
@@ -166,7 +167,7 @@ class Assignment1 extends React.Component {
                   {
                     duplicateValues.length > 0 &&
                     <p>
-                      <b style={{ color: "#ff0000" }}>Duplicate Values(deleted from list): </b>
+                      <b style={{ color: "#ff0000" }}>Duplicate Values: </b>
                       {duplicateValues.join(", ")}
                     </p>
                   }
