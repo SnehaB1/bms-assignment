@@ -1,9 +1,8 @@
+import { Button, Card, Col, Form, Icon, Input, Row } from "antd";
 import React from "react";
 import { connect } from "react-redux";
-import { Card, Form, Button, Input, Icon, Row, Col } from "antd";
-import "../style.css";
 import { updateList } from "../../actions/assignment-1";
-
+import "../style.css";
 
 class Assignment1 extends React.Component {
   constructor(props) {
@@ -27,7 +26,8 @@ class Assignment1 extends React.Component {
 
     Object.keys(numberList).map(function (key) {
       return tempArray.push(numberList[key]);
-    })
+    });
+
     this.setState({ arrayList: tempArray });
   }
 
@@ -70,12 +70,13 @@ class Assignment1 extends React.Component {
       array.splice(index, 1);
     }
 
-    return array.sort(function(a, b){return a - b});
+    return array.sort(function (a, b) { return a - b });
   }
 
   addValueToArray = (array, value) => {
     array.push(value);
-    return array.sort(function(a, b){return a - b});
+
+    return array.sort(function (a, b) { return a - b });
   }
 
   handleSubmit = e => {
@@ -89,36 +90,47 @@ class Assignment1 extends React.Component {
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
-        const splittedValues = values.inputNumber.split(", ");
+        // split values
+        const splittedValues = values.inputNumber.split(",");
 
         splittedValues.map((item) => {
+
+          //remove if not a number
+          if (isNaN(item)) {
+            this.deleteValueFromArray(splittedValues, item);
+          }
+
+          //code for range
           if (item.includes("-")) {
             this.appendValuesBetweenRange(splittedValues, item);
             this.deleteValueFromArray(splittedValues, item);
             // return true
           }
-          return true
+          return true;
         });
 
-        let j = 0;
-        for(j=0; j<splittedValues.length; j++) { splittedValues[j] = +splittedValues[j]; } 
-        splittedValues.filter(function(item, pos){
-          return splittedValues.indexOf(item)== pos; 
-        });
-        console.log(splittedValues)
-        // console.log(splittedValues, arrayList)
-        let duplicateValues = arrayList.filter((item) => { return splittedValues.indexOf(item) !== -1; })
-        let uniqueValues = splittedValues.diff(duplicateValues)
+        // string to number type change
+        for (let j = 0; j < splittedValues.length; j++) {
+          splittedValues[j] = +splittedValues[j];
+        }
 
+        // duplicate Value
+        let duplicateValues = splittedValues.filter(val => arrayList.includes(val));
+        
+        // unique values
+        let uniqueValues = splittedValues.diff(duplicateValues);
+        
         this.setState({
           duplicateValues,
           uniqueValues
         });
 
+        // add unique values to array
         uniqueValues.map((item) => {
           return this.addValueToArray(arrayList, item)
         })
 
+        // update redux store
         updateList(arrayList);
 
       }
@@ -129,7 +141,7 @@ class Assignment1 extends React.Component {
   render() {
     const { arrayList, duplicateValues, uniqueValues } = this.state;
     const { getFieldDecorator, getFieldsError, getFieldError, isFieldTouched } = this.props.form;
-    // Only show error after a fi eld is touched.
+    // Only show error after a field is touched.
     const inputNumberError = isFieldTouched('inputNumber') && getFieldError('inputNumber');
 
     return (
@@ -202,7 +214,7 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return{
+  return {
     updateList: (list) => dispatch(updateList(list))
   };
 };
