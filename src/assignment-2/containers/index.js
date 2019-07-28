@@ -35,7 +35,7 @@ class Assignment2 extends React.Component {
     if (windowWidth !== window.innerWidth) {
       this.findMinRow();
     }
-    this.setState({ windowWidth: window.innerWidth })
+    this.setState({ windowWidth: window.innerWidth });
   }
 
   getNumberOfItems(key, offsetTop) {
@@ -47,6 +47,7 @@ class Assignment2 extends React.Component {
     if (key > 8) {
       this.findMinRow()
     }
+    return true;
   }
 
   countOccurence() {
@@ -57,7 +58,7 @@ class Assignment2 extends React.Component {
 
     offsetTopArray.map((element) => {
       if (element === minOffsetTop)
-        i++;
+        return i++;
       else return i
     })
     return i;
@@ -130,7 +131,7 @@ class Assignment2 extends React.Component {
         <div className="trailer-wrapper" style={{}}>
           {
             Object.keys(apiData).map((item, index) =>
-              <TrailerColumn
+               <TrailerColumn
                 apiData={apiData}
                 item={item}
                 key={index}
