@@ -248,6 +248,11 @@ body {
     padding: 12px;
 }
 
+.stats-like:hover {
+    fill: #fff;
+    background-color: #41A458;
+}
+
 .info-will-watch {
     color: #41A458;
     justify-content: center;
@@ -276,6 +281,11 @@ body {
     padding: 12px;
 }
 
+.stats-maybe:hover {
+    fill: #fff;
+    background-color: #FFA500;
+}
+
 .info-maybe-watch {
     color: #FFA500;
     justify-content: center;
@@ -302,6 +312,11 @@ body {
     border: 1px solid #B24242;
     border-radius: 50%;
     padding: 12px;
+}
+
+.stats-dislike:hover{
+    fill: #fff;
+    background-color: #B24242;
 }
 
 .info-not-watch {
