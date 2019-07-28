@@ -96,6 +96,25 @@ class Assignment2 extends React.Component {
     updateActiveTrailerData(trailerData);
   }
 
+  hideTrailer() {
+    const { updateActiveTrailerData } = this.props
+    console.log("hideTrailer");
+    const trailerData = {
+      activeEventTitle: undefined,
+      activeTrailerURL: undefined,
+      activeEventLanguage: undefined,
+      activeEventGenre: undefined,
+      activeShowDate: undefined,
+      activeWtsPerc: undefined,
+      activeWtsCount: undefined,
+      activeDwtsCount: undefined,
+      activeMaybeCount: undefined,
+      activeIndex: undefined
+    }
+    updateActiveTrailerData(trailerData);
+    updateActiveTrailerData({});
+  }
+
   render() {
     const { apiData } = this.props;
     const { itemsPerRow, rowAbove } = this.state;
@@ -118,6 +137,7 @@ class Assignment2 extends React.Component {
                 index={index}
                 getNumberOfItems={(key, offsetTop) => this.getNumberOfItems(key, offsetTop)}
                 onClickTrailer={(index, item) => this.onClickTrailer(index, item)}
+                hideTrailer={() => this.hideTrailer()}
                 showTrailer={index === itemsPerRow * rowAbove}
               />
             )}
@@ -129,7 +149,7 @@ class Assignment2 extends React.Component {
 
 const mapStateToProps = (state) => {
   const { assignment2 } = state;
-
+  console.log(state);
   return {
     apiData: assignment2
   }

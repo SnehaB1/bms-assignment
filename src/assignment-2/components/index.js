@@ -70,8 +70,8 @@ class TrailerColumn extends React.Component {
   }
 
   render() {
-    const { apiData, item, showTrailer, activeTrailer } = this.props;
-    const { hideTrailer, addStyle } = this.state;
+    const { apiData, item, showTrailer, activeTrailer, hideTrailer } = this.props;
+
     const { DispReleaseDate, wtsCount, wtsPerc, EventTitle } = apiData[item];
     // const { activeEventTitle } = activeElement;
     const {
@@ -84,10 +84,10 @@ class TrailerColumn extends React.Component {
     return (
       <React.Fragment>
         {
-          showTrailer && !hideTrailer
+          showTrailer && activeIndex !== undefined
             ?
             <div className="trailer-row">
-              <div className="close" onClick={() => this.setState({ hideTrailer: true })}>
+              <div className="close" onClick={() => hideTrailer()}>
                 <Icon type="close" className="icon-close" />
               </div>
               <div
@@ -106,7 +106,7 @@ class TrailerColumn extends React.Component {
                 </div>
                 <div className={"genre-wrapper"}>
                   {
-                    activeEventGenre.split("|").map((item, i) =>
+                    activeEventGenre && activeEventGenre.split("|").map((item, i) =>
                       <div className={"genre-item"} key={i}>
                         {item}
                       </div>
@@ -132,8 +132,8 @@ class TrailerColumn extends React.Component {
                         <Icon component={CalendarSVG} className="trailer-info-calendar" />
                       </Col>
                       <Col>
-                        <Row className="trailer-info-percentage">{activeShowDate.split(",")[0]}</Row>
-                        <Row className="trailer-info-wtscount">{activeShowDate.split(",")[1]}</Row>
+                        <Row className="trailer-info-percentage">{activeShowDate && activeShowDate.split(",")[0]}</Row>
+                        <Row className="trailer-info-wtscount">{activeShowDate && activeShowDate.split(",")[1]}</Row>
                       </Col>
                     </Row>
                   </Col>
@@ -178,7 +178,7 @@ class TrailerColumn extends React.Component {
             :
             null
         }
-        <div className={`trailer-thumbmail ${(this.props.index === activeIndex && !hideTrailer) ? "selectedItem" : null}`}
+        <div className={`trailer-thumbmail ${(this.props.index === activeIndex) ? "selectedItem" : null}`}
           ref={this.myInput}
           onClick={() => this.handleClick()}
         >
