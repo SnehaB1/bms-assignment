@@ -79,14 +79,13 @@ class Assignment1 extends React.Component {
   }
 
   handleSubmit = e => {
+    e.preventDefault();
     const { updateList } = this.props;
     const { arrayList } = this.state;
 
     Array.prototype.diff = function (a) {
       return this.filter(function (i) { return a.indexOf(i) < 0; });
     };
-
-    e.preventDefault();
 
     this.props.form.validateFields((err, values) => {
       if (!err) {
@@ -97,8 +96,12 @@ class Assignment1 extends React.Component {
             this.appendValuesBetweenRange(splittedValues, item);
             this.deleteValueFromArray(splittedValues, item);
           }
-        })
+        });
 
+        let j = 0;
+        for(j=0; j<splittedValues.length; j++) { splittedValues[j] = +splittedValues[j]; } 
+
+        // console.log(splittedValues, arrayList)
         let duplicateValues = arrayList.filter((item) => { return splittedValues.indexOf(item) !== -1; })
         let uniqueValues = splittedValues.diff(duplicateValues)
 
@@ -191,7 +194,7 @@ class Assignment1 extends React.Component {
 
 const mapStateToProps = (state) => {
   const { assignment1 } = state;
-  console.log(state);
+  // console.log(state);
   return {
     numberList: assignment1
   }
