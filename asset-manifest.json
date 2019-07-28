@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/bms-assignment/static/css/main.736c4bce.chunk.css",
-    "main.js": "/bms-assignment/static/js/main.6801b082.chunk.js",
-    "main.js.map": "/bms-assignment/static/js/main.6801b082.chunk.js.map",
+    "main.js": "/bms-assignment/static/js/main.1edbac1f.chunk.js",
+    "main.js.map": "/bms-assignment/static/js/main.1edbac1f.chunk.js.map",
     "runtime~main.js": "/bms-assignment/static/js/runtime~main.a3bdedca.js",
     "runtime~main.js.map": "/bms-assignment/static/js/runtime~main.a3bdedca.js.map",
     "static/css/2.676dc204.chunk.css": "/bms-assignment/static/css/2.676dc204.chunk.css",
     "static/js/2.8680bae2.chunk.js": "/bms-assignment/static/js/2.8680bae2.chunk.js",
     "static/js/2.8680bae2.chunk.js.map": "/bms-assignment/static/js/2.8680bae2.chunk.js.map",
     "index.html": "/bms-assignment/index.html",
-    "precache-manifest.1fe26f268f6bf4f4ead6105b650ba5fc.js": "/bms-assignment/precache-manifest.1fe26f268f6bf4f4ead6105b650ba5fc.js",
+    "precache-manifest.e5060e4edd299ca918c4a3c0e6da4d73.js": "/bms-assignment/precache-manifest.e5060e4edd299ca918c4a3c0e6da4d73.js",
     "service-worker.js": "/bms-assignment/service-worker.js",
     "static/css/2.676dc204.chunk.css.map": "/bms-assignment/static/css/2.676dc204.chunk.css.map",
     "static/css/main.736c4bce.chunk.css.map": "/bms-assignment/static/css/main.736c4bce.chunk.css.map",
