@@ -174,7 +174,7 @@ class Assignment1 extends React.Component {
                 </Form.Item>
               </Form>
 
-              <Row>
+              <Row className="result">
                 <Col>
                   {
                     duplicateValues.length > 0 &&
