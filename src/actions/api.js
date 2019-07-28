@@ -1,10 +1,10 @@
-import { trailersApi } from "../constants";
+import { trailersApi, proxyurl } from "../constants";
 
 
 export const getTrailersData = () =>
   async (dispatch) => {
     try {
-      const response = await fetch(trailersApi, {
+      const response = await fetch(proxyurl+ trailersApi, {
         method: "GET",
         headers: {
           "Content-type": "text/plain"

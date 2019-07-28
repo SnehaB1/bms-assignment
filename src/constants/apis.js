@@ -1,1 +1,2 @@
-export const trailersApi = "https://cors.io/?https://in.bookmyshow.com/serv/getData?cmd=GETTRAILERS&mtype=cs";
+export const trailersApi = "https://in.bookmyshow.com/serv/getData?cmd=GETTRAILERS&mtype=cs";
+export const proxyurl = "https://cors-anywhere.herokuapp.com/";
