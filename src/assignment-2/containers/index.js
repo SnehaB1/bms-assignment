@@ -1,12 +1,9 @@
+import { Button, Row } from "antd";
 import React from "react";
 import { connect } from "react-redux";
-import { Row, Button } from "antd";
-
+import { updateActiveTrailerData } from "../../actions/assignment-2";
 import TrailerColumn from "../components";
 import "../style.css";
-import { updateActiveTrailerData } from "../../actions/assignment-2";
-
-
 
 class Assignment2 extends React.Component {
   constructor(props) {
@@ -31,7 +28,7 @@ class Assignment2 extends React.Component {
 
   onChangeWidth() {
     const { windowWidth } = this.state;
-    // this.setState
+    // change configuration according to screen size
     if (windowWidth !== window.innerWidth) {
       this.findMinRow();
     }
@@ -40,9 +37,7 @@ class Assignment2 extends React.Component {
 
   getNumberOfItems(key, offsetTop) {
     const { offsetTopArray } = this.state;
-    /* if (initialiseArray) {
-      this.setState({ offsetTopArray: [] });
-    } */
+
     offsetTopArray.push(offsetTop);
     if (key > 8) {
       this.findMinRow()
@@ -66,7 +61,7 @@ class Assignment2 extends React.Component {
 
   findMinRow() {
     let val = this.countOccurence();
-    // console.log("findminrow", val)
+
     this.setState({ itemsPerRow: val })
   }
 
@@ -79,9 +74,12 @@ class Assignment2 extends React.Component {
       dwtsCount, maybeCount
     } = apiData[item];
 
+    // row above trailer is clicked
     let rowAbove = Math.floor((parseInt(index)) / parseInt(itemsPerRow))
     this.setState({ rowAbove });
+
     let activeIndex = TrailerURL.indexOf("v=");
+
     const trailerData = {
       activeEventTitle: EventTitle,
       activeTrailerURL: `https://www.youtube.com/embed/${TrailerURL.substring(activeIndex + 2, activeIndex + 13)}?autoplay=1&mute=1&enablejsapi=1`,
@@ -94,12 +92,15 @@ class Assignment2 extends React.Component {
       activeMaybeCount: maybeCount,
       activeIndex: index
     }
+
+    // redux store update
     updateActiveTrailerData(trailerData);
   }
 
   hideTrailer() {
     const { updateActiveTrailerData } = this.props
-    console.log("hideTrailer");
+
+    // empty redux store
     const trailerData = {
       activeEventTitle: undefined,
       activeTrailerURL: undefined,
@@ -113,7 +114,7 @@ class Assignment2 extends React.Component {
       activeIndex: undefined
     }
     updateActiveTrailerData(trailerData);
-    updateActiveTrailerData({});
+    // updateActiveTrailerData({});
   }
 
   render() {
@@ -131,7 +132,7 @@ class Assignment2 extends React.Component {
         <div className="trailer-wrapper" style={{}}>
           {
             Object.keys(apiData).map((item, index) =>
-               <TrailerColumn
+              <TrailerColumn
                 apiData={apiData}
                 item={item}
                 key={index}
@@ -143,6 +144,7 @@ class Assignment2 extends React.Component {
               />
             )}
         </div>
+
       </div>
     )
   }
