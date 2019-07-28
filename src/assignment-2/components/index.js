@@ -48,8 +48,6 @@ class TrailerColumn extends React.Component {
   }
 
   componentDidMount() {
-    const { index } = this.props;
-    const { itemsPerRow, minOffsetTop } = this.state;
     this.sendValueToParent();
     window.addEventListener("resize", this.sendValueToParent.bind(this));
   }
@@ -93,8 +91,12 @@ class TrailerColumn extends React.Component {
               <div
                 className="iframe-col"
               >
-                <iframe width={"100%"} height={"100%"} style={{ border: "1px solid #000" }}
-                  src={activeTrailerURL}>
+                <iframe
+                  width={"100%"}
+                  height={"100%"}
+                  style={{ border: "1px solid #000" }}
+                  src={activeTrailerURL}
+                  title={activeEventTitle}>
                 </iframe>
               </div>
               <div className={"trailer-info"}>
@@ -190,8 +192,8 @@ class TrailerColumn extends React.Component {
                 className={"trailers-image"}
               />
               <div className="trailer-date">
-                <div className="date">{moment(DispReleaseDate).format("DD")}</div>
-                <div className="month">{moment(DispReleaseDate).format("MMM")}</div>
+                <div className="date">{moment(new Date(DispReleaseDate)).format("DD")}</div>
+                <div className="month">{moment(new Date(DispReleaseDate)).format("MMM")}</div>
               </div>
               <div className="trailer-play">
                 <Icon component={PlaySVG} className="play-button" />
