@@ -96,6 +96,8 @@ class TrailerColumn extends React.Component {
                   height={"100%"}
                   style={{ border: "1px solid #000" }}
                   src={activeTrailerURL}
+                  type={"text/html"}
+                  allow={"autoplay"}
                   title={activeEventTitle}>
                 </iframe>
               </div>

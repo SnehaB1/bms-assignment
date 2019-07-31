@@ -82,7 +82,7 @@ class Assignment2 extends React.Component {
 
     const trailerData = {
       activeEventTitle: EventTitle,
-      activeTrailerURL: `https://www.youtube.com/embed/${TrailerURL.substring(activeIndex + 2, activeIndex + 13)}?autoplay=1&mute=1&enablejsapi=1`,
+      activeTrailerURL: `https://www.youtube.com/embed/${TrailerURL.substring(activeIndex + 2, activeIndex + 13)}??wmode=opaque&autohide=1&autoplay=1&enablejsapi=1"`,
       activeEventLanguage: EventLanguage,
       activeEventGenre: EventGenre,
       activeShowDate: ShowDate,
@@ -120,7 +120,7 @@ class Assignment2 extends React.Component {
   render() {
     const { apiData } = this.props;
     const { itemsPerRow, rowAbove } = this.state;
-    // console.log(itemsPerRow)
+    console.log(itemsPerRow, rowAbove)
 
     return (
       <div>
